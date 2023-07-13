@@ -1,2 +1,2 @@
 # alx-low_level_programming
-repo
+A repo made to practice C programming - Alx software engineering programme
