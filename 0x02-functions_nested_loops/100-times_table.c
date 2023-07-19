@@ -16,10 +16,10 @@ void print_times_table(int n)
 	for (number = 0; number <= n; number++)
 	{
 		_putchar('0');
-		_putchar(',');
 
 		for (multiple = 1; multiple <= n; multiple++)
 		{
+			_putchar(',');
 			_putchar(' ');
 
 			product = number * multiple;
@@ -40,9 +40,6 @@ void print_times_table(int n)
 				_putchar('0' + (product / 10));
 
 			_putchar('0' + (product % 10));
-
-			if (multiple != n)
-				_putchar(',');
 		}
 
 		_putchar('\n');
