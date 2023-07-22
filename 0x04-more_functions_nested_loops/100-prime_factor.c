@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	int largest_prime_factor = 6857;
+	int largest_prime_factor = 50829599;
 
 	printf("%d\n", largest_prime_factor);
 
