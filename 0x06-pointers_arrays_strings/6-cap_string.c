@@ -11,7 +11,7 @@ char *cap_string(char *str)
 {
 	char *ptr = str;
 
-	while (*str)
+	while (*str != '\0')
 	{
 		if (*(str - 1) == ' ' ||
 		    *(str - 1) == '\t' ||
@@ -29,11 +29,11 @@ char *cap_string(char *str)
 		    str == ptr)
 		{
 			if (*str >= 'a' && *str <= 'z')
-			{
 				*str -= 32;
-			}
 		}
-			str++;
+	
+		str++;
 	}
+
 	return (ptr);
 }
