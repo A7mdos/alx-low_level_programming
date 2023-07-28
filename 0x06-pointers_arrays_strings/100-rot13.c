@@ -14,25 +14,24 @@ char *rot13(char *str)
 
 	while (str[i] != '\0')
 	{
-		while (!((str[i] >= 'a' && str[i] <= 'z') ||
-				(str[i] >= 'A' && str[i] <= 'Z')))
+		while ((str[i] >= 'a' && str[i] <= 'z') ||
+			   (str[i] >= 'A' && str[i] <= 'Z'))
 		{
-			i++;
-			continue;
+			if ((str[i] >= 'a' && str[i] <= 'z'))
+			{
+				letter_order = str[i] - 'a';
+				encoded_letter = 'a' + ((letter_order + 13) % 26);
+				str[i++] = encoded_letter;
+			}
+			else
+			{
+				letter_order = str[i] - 'A';
+				encoded_letter = 'A' + ((letter_order + 13) % 26);
+				str[i++] = encoded_letter;
+			}
 		}
 
-		if ((str[i] >= 'a' && str[i] <= 'z'))
-		{
-			letter_order = str[i] - 'a';
-			encoded_letter = 'a' + ((letter_order + 13) % 26);
-			str[i++] = encoded_letter;
-		}
-		else
-		{
-			letter_order = str[i] - 'A';
-			encoded_letter = 'A' + ((letter_order + 13) % 26);
-			str[i++] = encoded_letter;
-		}
+		i++;
 	}
 
 	return (str);
