@@ -30,7 +30,6 @@ void print_buffer(char *b, int size)
 			if ((i % 2) != 0 && i != 0)
 				printf(" ");
 		}
-
 		for (i = 0; i < 10; i++)
 		{
 			ascii_value = *(b + byte + i);
@@ -45,13 +44,11 @@ void print_buffer(char *b, int size)
 			else
 				printf(".");
 		}
-
 		if (byte >= size)
 			continue;
 
 		printf("\n");
 	}
-
 	if (size <= 0)
 		printf("\n");
 }
