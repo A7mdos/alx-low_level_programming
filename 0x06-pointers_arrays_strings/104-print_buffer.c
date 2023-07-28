@@ -38,7 +38,7 @@ void print_buffer(char *b, int size)
 			if ((byte + i) >= size)
 				break;
 
-			else if (ascii_value >= 31 &&
+			else if (ascii_value >= 32 &&
 					 ascii_value <= 126)
 				printf("%c", ascii_value);
 
