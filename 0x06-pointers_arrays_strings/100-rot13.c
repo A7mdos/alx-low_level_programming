@@ -25,16 +25,14 @@ char *rot13(char *str)
 		{
 			letter_order = str[i] - 'a';
 			encoded_letter = 'a' + ((letter_order + 13) % 26);
-			str[i] = encoded_letter;
+			str[i++] = encoded_letter;
 		}
 		else
 		{
 			letter_order = str[i] - 'A';
 			encoded_letter = 'A' + ((letter_order + 13) % 26);
-			str[i] = encoded_letter;
+			str[i++] = encoded_letter;
 		}
-
-		i++;
 	}
 
 	return (str);
