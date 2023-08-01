@@ -8,16 +8,15 @@
  */
 int main(void)
 {
-	int i;
+	int count;
 	unsigned long first, second, next,
 				  first_left_half, first_right_half,
 				  second_left_half, second_right_half,
 				  left_half, right_half;
 
-	first = 1;
-	second = 2;
-	printf("%lu, %lu, ", first, second);
-	for (i = 0; i < 92; i++)
+	first = 0;
+	second = 1;
+	for (count = 0; count < 92; count++)
 	{
 		next = first + second;
 		first = second;
@@ -28,7 +27,7 @@ int main(void)
 	first_right_half = first % 10000000000;
 	second_left_half = second / 10000000000;
 	second_right_half = second % 10000000000;
-	for (i = 93; i < 99; i++)
+	for (count = 93; count < 99; count++)
 	{
 		left_half = first_left_half + second_left_half;
 		right_half = first_right_half + second_right_half;
@@ -38,9 +37,9 @@ int main(void)
 			left_half += 1;
 		}
 		printf("%lu%lu", left_half, right_half);
-		if (i == 98)
-			break;
-		printf(", ");
+		if (count != 98)
+			printf(", ");
+
 		first_left_half = second_left_half;
 		first_right_half = second_right_half;
 		second_left_half = left_half;
