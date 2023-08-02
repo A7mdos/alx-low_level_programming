@@ -1,6 +1,6 @@
 #include "main.h"
 
-int _is_divisible(int , int);
+int _is_divisible(int, int);
 
 /**
  * is_prime_number - Checks if a number is a prime number
@@ -9,7 +9,6 @@ int _is_divisible(int , int);
  *
  * Return: If n is a prime number, 1.
  *		   If n is not a prime number, 0.
- *
  */
 int is_prime_number(int n)
 {
