@@ -31,7 +31,7 @@ with `argc` and `argv` as well as how to use `__attribute__((unused))` or
     a new line and returns `1`.
 
 * **4. To infinity and beyond**
-  * [4-add.c](./4-add.c): C program that adds two positive numbers and prints the result,
+  * [4-add.c](./4-add.c): C program that adds positive numbers and prints the result,
   followed by a new line.
     * The program assumes that the numbers and result of the addition can be stored in an `int`.
     * If no number is passed to the program, it prints `0` followed by a new line.
