@@ -15,7 +15,7 @@ int _strlen(char *s);
  */
 char *str_concat(char *s1, char *s2)
 {
-	char* concat;
+	char *concat;
 	unsigned int length1, length2, total_length,
 				 index, concat_index = 0;
 
@@ -28,7 +28,7 @@ char *str_concat(char *s1, char *s2)
 	length1 = _strlen(s1);
 	length2 = _strlen(s2);
 	total_length = length1 + length2;
-	concat = (char*)malloc(sizeof(char) * (total_length + 1));
+	concat = (char *)malloc(sizeof(char) * (total_length + 1));
 
 	if (concat == NULL)
 		return (NULL);
