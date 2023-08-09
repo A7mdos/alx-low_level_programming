@@ -1,8 +1,9 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-unsigned int word_len(char *str, unsigned int start_index);
-unsigned int count_words(char *str);
+int word_len(char *str, int start_index);
+int count_words(char *str);
 
 /**
  * strtow - Splits a string into words.
@@ -15,9 +16,8 @@ unsigned int count_words(char *str);
 char **strtow(char *str)
 {
 	char **words;
-	unsigned int str_index, letter_index,
+	int str_index, word_index, letter_index,
 				 word_length, words_count = 0;
-	int word_index;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
@@ -50,6 +50,9 @@ char **strtow(char *str)
 
 		words[word_index][letter_index] = '\0';
 		word_index++;
+
+		if (str[str_index] == '\0')
+			break;
 	}
 
 	words[words_count] = NULL;
@@ -66,9 +69,9 @@ char **strtow(char *str)
  *
  * Return: The length of the word.
  */
-unsigned int word_len(char *str, unsigned int start_index)
+int word_len(char *str, int start_index)
 {
-	unsigned int i, length = 0;
+	int i, length = 0;
 
 	i = start_index;
 	while (str[i] != ' ' && str[i] != '\0')
@@ -88,9 +91,9 @@ unsigned int word_len(char *str, unsigned int start_index)
  *
  * Return: The number of words contained within @str.
  */
-unsigned int count_words(char *str)
+int count_words(char *str)
 {
-	unsigned int i, words_count = 0;
+	int i, words_count = 0;
 
 
 	for (i = 0; str[i]; i++)
