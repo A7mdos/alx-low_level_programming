@@ -23,9 +23,8 @@ char **strtow(char *str)
 		return (NULL);
 
 	words_count = count_words(str);
-
 	words = malloc(sizeof(char *) * (words_count + 1));
-	if (words == NULL)
+	if (words == NULL || words_count == 0)
 		return (NULL);
 
 	word_index = 0;
