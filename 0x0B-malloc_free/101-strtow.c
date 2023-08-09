@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int word_len(char *str, int start_index);
+int word_len(char *str);
 int count_words(char *str);
 
 /**
@@ -34,7 +34,7 @@ char **strtow(char *str)
 		while (str[str_index] == ' ')
 			str_index++;
 
-		word_length = word_len(str, str_index);
+		word_length = word_len(str + str_index);
 
 		words[word_index] = malloc(sizeof(char) * (word_length + 1));
 
@@ -58,20 +58,18 @@ char **strtow(char *str)
 }
 
 /**
- * word_len - Calculates the length of a word inside a string.
- *			  (words are seperated by spaces)
+ * word_len - Locates the index marking the end of the
+ *            first word contained within a string.
  *
  * @str: The string to be searched.
- * @start_index: The starting position of the word inside @str.
  *
- * Return: The length of the word.
+ * Return: The index marking the end of the initial word pointed to by str.
  */
-int word_len(char *str, int start_index)
+int word_len(char *str)
 {
-	int i, length = 0;
+	int i = 0, length = 0;
 
-	i = start_index;
-	while (str[i] != ' ' && str[i] != '\0')
+	while (*(str + i) && *(str + i) != ' ')
 	{
 		length++;
 		i++;
@@ -80,26 +78,28 @@ int word_len(char *str, int start_index)
 	return (length);
 }
 
+
 /**
- * count_words - Counts the number of words, seperated by spaces,
- *				 inside a string.
+ * count_words - Counts the number of words contained within a string.
  *
- * @str: The string containing the words.
+ * @str: The string to be searched.
  *
- * Return: The number of words contained within @str.
+ * Return: The number of words contained within str.
  */
 int count_words(char *str)
 {
-	int i, words_count = 0;
+	int i = 0, words_count = 0, length = 0;
 
+	for (i = 0; *(str + i); i++)
+		length++;
 
-	for (i = 0; str[i]; i++)
+	for (i = 0; i < length; i++)
 	{
-		if (str[i] == ' ')
-			continue;
-
-		i += word_len(str, i);
-		words_count++;
+		if (*(str + i) != ' ')
+		{
+			words_count++;
+			i += word_len(str + i);
+		}
 	}
 
 	return (words_count);
