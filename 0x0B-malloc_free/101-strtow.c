@@ -25,7 +25,10 @@ char **strtow(char *str)
 	words_count = count_words(str);
 	words = malloc(sizeof(char *) * (words_count + 1));
 	if (words == NULL || words_count == 0)
+	{
+		free(words);
 		return (NULL);
+	}
 
 	word_index = 0;
 	for (str_index = 0; str[str_index]; str_index++)
