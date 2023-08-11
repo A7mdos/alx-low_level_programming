@@ -18,6 +18,26 @@ void print(char *str)
 
 
 /**
+ * print_error - Prints "Error", followed by a new line.
+ *		   And exits(98)
+ *
+ * @str: The string to be printed.
+ */
+void print_error(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
+
+	_putchar('\n');
+
+	exit(98);
+}
+
+
+
+/**
  * rev_string - reverses a string
  *
  * @s: the string to reverse
@@ -83,7 +103,7 @@ char *zero_fill(char *arr, int size)
 
 /**
  * isalldigits - Checks if a string contains only digits.
- * 
+ *
  * @str: Given input to check
  *
  * Return: 1 if a number, 0 if otherwise
@@ -121,14 +141,10 @@ char *multiply(char *num1, char *num2, int length1, int length2)
 	result_length = length1 + length2 + 1;
 	result = malloc(result_length * sizeof(char));
 	if (result == NULL)
-	{
-		print("Error");
-		exit(98);
-	}
-
+		print_error("Error");
 	result = zero_fill(result, result_length);
-
-	i = length2 - 1; carry = k = digit = 0;
+	i = length2 - 1;
+	carry = k = digit = 0;
 	while (i >= 0 && k < (length1 + length2))
 	{
 		j = length1 - 1;
@@ -140,7 +156,6 @@ char *multiply(char *num1, char *num2, int length1, int length2)
 			if (product > 9)
 				carry += product / 10;
 			product = product % 10;
-
 			if (((result[k] - '0') + product) > 9)
 			{
 				carry += 1;
@@ -148,18 +163,17 @@ char *multiply(char *num1, char *num2, int length1, int length2)
 			}
 			else
 				result[k] += product;
-
 			result[k + 1] += carry;
-			k++; j--;
+			k++;
+			j--;
 		}
-		i--; digit++;
+		i--;
+		digit++;
 	}
-
 	if (result[k] == '0')
 		result[k] = '\0';
 	else
 		result[k + 1] = '\0';
-
 	return (result);
 }
 
@@ -272,16 +286,11 @@ int main(int argc, char *argv[])
 		print("Error");
 		exit(98);
 	}
-
 	if (isalldigits(argv[1]) == 0 || isalldigits(argv[2]) == 0)
-	{
-		print("Error");
-		exit(98);
-	}
+		print_error("Error");
 
 	length1 = _strlen(argv[1]);
 	length2 = _strlen(argv[2]);
-
 	num1 = check_zero(argv[1], length1);
 	if (*num1 == '0')
 	{
@@ -289,7 +298,6 @@ int main(int argc, char *argv[])
 		_putchar('\n');
 		return (0);
 	}
-
 	num2 = check_zero(argv[2], length2);
 	if (*num2 == '0')
 	{
@@ -297,19 +305,16 @@ int main(int argc, char *argv[])
 		_putchar('\n');
 		return (0);
 	}
-
 	length1 = _strlen(num1);
 	length2 = _strlen(num2);
 	if (length1 > length2)
 		product = multiply(num1, num2, length1, length2);
 	else
 		product = multiply(num2, num1, length2, length1);
-
 	rev_string(product);
 	print(product);
 	free(product);
 	free(num1);
 	free(num2);
-
 	return (0);
 }
