@@ -47,7 +47,7 @@ void error_and_exit(void)
 }
 
 /**
- * multiply - Multiply two string digits and the save the result in the destination
+ * multiply - Multiply two string digits and the save the result
  * @s1: The first string that contains only digits
  * @s2: The second string that contains only digits
  * @len1: The length of the first string
