@@ -11,11 +11,11 @@ void print_all(const char * const format, ...);
 #include <stdarg.h>
 
 /**
- * struct printer - A struct type defining a printer.
+ * struct Printer - A struct type defining a printer.
  *
- * @typespecifier: A pointer to a character representing a data type.
+ * @typeSpecifier: A pointer to a character representing a data type.
  * @print: A function pointer to a function that prints
- *         a data type corresponding to typespecifier.
+ *         a data type corresponding to typeSpecifier.
  */
 struct Printer
 {
