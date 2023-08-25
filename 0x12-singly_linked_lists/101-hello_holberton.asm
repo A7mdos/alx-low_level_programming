@@ -2,12 +2,12 @@
 	extern printf
 
 main:
-
-	mov rdi, hello
+	mov rdi, msg
 	xor rax, rax
+
 	call printf
 
 	xor rax, rax
 	ret
 
-hello: db `Hello, Holberton`, 10
+msg: db `Hello, Holberton`, 10
