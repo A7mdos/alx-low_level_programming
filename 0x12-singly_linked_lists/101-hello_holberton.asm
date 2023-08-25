@@ -1,11 +1,17 @@
 	global main
 	extern printf
 
+
+	section  .text
+
 main:
-	mov rdi, msg
+	mov rdi, hel
 	xor rax, rax
 	call printf
 	xor rax, rax
 	ret
 
-msg: db `Hello, Holberton`, 10
+
+	section  .data
+
+hel: db `Hello, Holberton`, 10
