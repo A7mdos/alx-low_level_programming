@@ -1,7 +1,6 @@
 #include "lists.h"
 #include <string.h>
 
-unsigned int _strlen(char *s);
 
 /**
  * add_node_end - Adds a new node at the end
@@ -17,6 +16,7 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *new_node, *tail_node;
 	char *duplicate;
+	unsigned int str_len;
 
 	new_node = malloc(sizeof(list_t));
 	if (new_node == NULL)
@@ -29,8 +29,11 @@ list_t *add_node_end(list_t **head, const char *str)
 		return (NULL);
 	}
 
+	for (str_len = 0; str[str_len] != '\0';)
+		str_len++;
+
 	new_node->str = duplicate;
-	new_node->len = _strlen(duplicate);
+	new_node->len = str_len;
 	new_node->next = NULL;
 
 	if (*head == NULL)
@@ -46,22 +49,4 @@ list_t *add_node_end(list_t **head, const char *str)
 	tail_node->next = new_node;
 
 	return (new_node);
-}
-
-
-/**
- * _strlen - calculates the length of a string
- *
- * @s: the string to get the length of
- *
- * Return: the length of the string
- */
-unsigned int _strlen(char *s)
-{
-	unsigned int i = 0, length = 0;
-
-	while (s[i++] != '\0')
-		length++;
-
-	return (length);
 }
