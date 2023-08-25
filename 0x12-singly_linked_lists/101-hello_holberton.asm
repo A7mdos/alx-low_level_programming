@@ -4,9 +4,7 @@
 main:
 	mov rdi, msg
 	xor rax, rax
-
 	call printf
-
 	xor rax, rax
 	ret
 
