@@ -4,6 +4,7 @@
 		"*.tcc": "c",
 		"main": "c",
 		"function_pointers.h": "c",
-		"stdarg.h": "c"
+		"stdarg.h": "c",
+		"fcntl.h": "c"
 	}
 }
