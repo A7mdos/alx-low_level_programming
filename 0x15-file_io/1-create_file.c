@@ -14,6 +14,9 @@ int create_file(const char *filename, char *text_content)
 	int fd, flags, w, len = 0;
 	mode_t permissions;
 
+	if (filename == NULL)
+		return (-1);
+
 	flags = O_WRONLY | O_CREAT | O_TRUNC;
 	permissions = S_IRUSR | S_IWUSR;
 
