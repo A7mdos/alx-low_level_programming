@@ -20,7 +20,7 @@ void close_file(int fd);
  */
 int main(int argc, char **argv)
 {
-	int src_fd, dest_fd, r, w, buffer_size, flags, permissions;
+	int src_fd, dest_fd, r, w, flags, permissions, buffer_size = 1024;
 	char *buffer, *src_filename, *dest_filename;
 
 	if (argc != 3)
