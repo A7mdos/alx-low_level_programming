@@ -48,7 +48,6 @@ int main(int argc, char *argv[])
 	for (idx = 0; idx < argv[1][0]; idx++)
 		temp = rand();
 	password[5] = ex[(temp ^ 229) & 63];
-
 	password[6] = '\0';
 
 	printf("%s", password);
