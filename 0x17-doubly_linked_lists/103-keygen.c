@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 	char *ex, password[7];
 	int idx, temp, str_len = strlen(argv[1]);
 
+	(void)argc;
 	ex = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU+4mjW6fxqZeF3Qa1rPhdKIouk";
 
 	temp = (str_len ^ 59) & 63;

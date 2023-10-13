@@ -5,6 +5,7 @@
 		"main": "c",
 		"function_pointers.h": "c",
 		"stdarg.h": "c",
-		"fcntl.h": "c"
+		"fcntl.h": "c",
+		"lists.h": "c"
 	}
 }
